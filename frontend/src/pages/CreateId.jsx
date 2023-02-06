@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FormField, CustomButton, Loader } from "../components";
 import { useStateContext } from "../context";
+import { useStorageUpload } from "@thirdweb-dev/react";
 
 const CreateId = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { createId } = useStateContext();
+  const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [form, setForm] = useState({
     fullName: "",
     birthDate: "",
@@ -17,36 +20,55 @@ const CreateId = () => {
     image: "",
   });
 
+  const { mutateAsync: upload } = useStorageUpload();
+
+  const uploadToIpfs = async () => {
+    if (image) {
+      const uploadUrl = await upload({
+        data: [image],
+        options: {
+          uploadWithGatewayUrl: true,
+          uploadWithoutDirectory: true,
+        },
+      });
+      console.log(uploadUrl);
+      setImageUrl(uploadUrl);
+    } else {
+      console.log("Error in Uploading pics");
+    }
+  };
+
   const handleFormFieldChange = (fieldName, e) => {
     setForm({ ...form, [fieldName]: e.target.value });
   };
 
-  const checkIfImage = (url, callback) => {
-    const img = new Image();
-    img.src = url;
+  // const checkIfImage = (url, callback) => {
+  //   const img = new Image();
+  //   img.src = url;
 
-    if (img.complete) callback(true);
+  //   if (img.complete) callback(true);
 
-    img.onload = () => callback(true);
-    img.onerror = () => callback(false);
-  };
+  //   img.onload = () => callback(true);
+  //   img.onerror = () => callback(false);
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setForm({ ...form, image: "" });
-    checkIfImage(form.image, async (exists) => {
-      if (exists) {
-        setIsLoading(true);
-        await createId({
-          ...form,
-        });
-        setIsLoading(false);
-        navigate("/profile");
-      } else {
-        alert("Provide valid image URL");
-      }
+    setIsLoading(true);
+    setForm({ ...form, image: imageUrl });
+    await createId({
+      ...form,
+      image: imageUrl,
     });
+    setIsLoading(false);
+    navigate("/profile");
+    // checkIfImage(form.image, async (exists) => {
+    //   if (exists) {
+    //   } else {
+    //     alert("Provide valid image URL");
+    //   }
+    // });
 
     console.log(form);
   };
@@ -123,15 +145,33 @@ const CreateId = () => {
               handleFormFieldChange("phoneNo", e);
             }}
           />
-          <FormField
-            labelName="National ID"
-            placeholder="Paste your ID Url"
-            inputType="text"
-            value={form.image}
-            handleChange={(e) => {
-              handleFormFieldChange("image", e);
-            }}
-          />
+          <div className={`flex flex-col sm:flex-row gap-4`}>
+            <div>
+              <input
+                type="file"
+                onChange={(e) => {
+                  if (e.target.files) {
+                    setImage(e.target.files[0]);
+                  }
+                }}
+                className="py-[15px] sm:px-[25px] px-[15px] block w-full text-sm text-slate-500
+      file:mr-4 file:py-2 file:px-4
+      file:rounded-full file:border-0
+      file:text-sm file:font-semibold
+      file:bg-violet-50 file:text-[#1dc071]
+      hover:file:bg-violet-100"
+              />
+            </div>
+            <div className="flex items-end">
+              <button
+                type="submit"
+                onClick={uploadToIpfs}
+                className="bg-[#1dc071] py-[10px] px-[25px] font-epilogue font-semibold text-[16px] leading-[26px] text-white min-h-[52px] px-4 rounded-[10px]"
+              >
+                Upload
+              </button>
+            </div>
+          </div>
         </div>
         <div className="flex justify-center items-center mt-[40px]">
           <CustomButton
