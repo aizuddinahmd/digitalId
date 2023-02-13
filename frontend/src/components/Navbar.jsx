@@ -1,23 +1,34 @@
 import React from "react";
 import CustomButton from "./CustomButton";
-import { logo } from "../assets";
+import { logo, pfp } from "../assets";
 
 import { useStateContext } from "../context";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { connect, address } = useStateContext();
 
   return (
-    <div
-      className={`flex md:flex-row flex-row-reverse justify-between mb-[35px] gap-6`}
-    >
-      <div className="w-[80px] h-[80px] rounded-full flex justify-center items-center cursor-pointer">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-[100%] h-[100%] object-contain"
-        />
-      </div>
+    <div className={`w-full flex py-6 justify-between items-center navbar`}>
+      <Link to="/">
+        <div className="w-[80px] h-[80px] rounded-full flex justify-center items-center cursor-pointer">
+          <img
+            src={logo}
+            alt="logo"
+            className="w-[100%] h-[100%] object-contain"
+          />
+        </div>
+      </Link>
+      <Link to="/createId">
+        <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+          <li
+            className={`font-epilogue font-normal cursor-pointer text-[16px] text-white`}
+          >
+            Create Profile
+          </li>
+        </ul>
+      </Link>
       <div className={`sm:flex hidden flex-row justify-end gap-4`}>
         <CustomButton
           btnType="button"
@@ -31,15 +42,15 @@ const Navbar = () => {
             connect();
           }}
         />
-        {/* <Link to="/profile">
-      <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
-        <img
-          src={thirdweb}
-          alt="user"
-          className="w-[60%] h-[60%] object-contain "
-        />
-      </div>
-    </Link> */}
+        <Link to="/profile">
+          <div className="w-[52px] h-[52px] rounded-full bg-[#2c2f32] flex justify-center items-center cursor-pointer">
+            <img
+              src={pfp}
+              alt="user"
+              className="w-[100%] h-[100%] object-contain rounded-full "
+            />
+          </div>
+        </Link>
       </div>
     </div>
   );

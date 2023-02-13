@@ -36,9 +36,9 @@ const Hero = () => {
             alt="fingerprint"
             className="w-[100%] h-[100%] relative z-[5]"
           />
-          <div className="absolute z-[0] w-[40%] h-[35%] top-0 gold__gradient"></div>
+          <div className="absolute z-[0] w-[50%] h-[45%] top-0 pink_gradient"></div>
 
-          <div className="absolute z-[1] w-[50%] h-[50%] rounded-full right-20 bottom-40 purple__gradient"></div>
+          <div className="absolute z-[1] w-[60%] h-[60%] rounded-full right-20 bottom-40 white__gradient"></div>
         </div>
       </div>
     </section>

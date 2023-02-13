@@ -9,7 +9,7 @@ const Benefit2 = () => {
         <h2 className={`${styles.heading2}`}>
           Store all your information <br /> in one place.
         </h2>
-        <p className={`${styles.paragraph} max-w-[470px]`}>
+        <p className={`${styles.paragraph}`}>
           With ldverse, users can store all their personal information in one
           secure place, accessible from anywhere. This eliminates the need for
           users to remember multiple passwords or carry physical copies of their
@@ -17,7 +17,7 @@ const Benefit2 = () => {
         </p>
       </div>
       <div className={`${layout.sectionImg}`}>
-        <img src={key} alt="key" className="w-100% h-100% object-contain" />
+        <img src={key} alt="key" className={`w-[100%] h-[100%]`} />
       </div>
     </section>
   );

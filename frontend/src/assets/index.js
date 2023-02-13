@@ -8,6 +8,7 @@ import securitybox from "./securitybox.svg";
 import key from "./key.svg";
 import contract from "./contract.svg";
 import profile from "./profile.svg";
+import pfp from "./pfp.svg";
 
 export {
   loader,
@@ -20,4 +21,5 @@ export {
   key,
   contract,
   profile,
+  pfp,
 };

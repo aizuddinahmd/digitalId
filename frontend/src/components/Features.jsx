@@ -11,7 +11,7 @@ const Features = () => {
           Secure and store your personal information in 3 easy steps
         </p>
       </div>
-      <div className={`${layout.sectionImg} flex-col`}>
+      <div className={`${layout.sectionImg} flex-col `}>
         <div className={`flex flex-row p-6 rounded-[20px] feature-card `}>
           <div
             className={`w-[64px] h-[64px] rounded-full bg-dimBlue ${styles.flexCenter}`}

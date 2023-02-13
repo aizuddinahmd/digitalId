@@ -2,12 +2,17 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { CreateId, Profile, Home } from "./pages";
 import { Navbar } from "./components";
+import styles from "./styles";
 
 const App = () => {
   return (
-    <div className="relative sm:-8 p-4 bg-[#13131a] min-h-screen flex flex-row">
-      <div className={`flex-1 max-sm:w-full max-w-[1280px] mx-auto sm:pr-5`}>
-        <Navbar />
+    <div className="bg-primary w-full overflow-hidden">
+      <div className={`${styles.paddingX} ${styles.flexCenter}`}>
+        <div className={`${styles.boxWidth}`}>
+          <Navbar />
+        </div>
+      </div>
+      <div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="createId" element={<CreateId />} />

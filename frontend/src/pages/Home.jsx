@@ -8,6 +8,7 @@ import {
   Benefit2,
   Benefit3,
   CTA,
+  Footer,
 } from "../components";
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
           <Benefit2 />
           <Benefit3 />
           <CTA />
+          <Footer />
         </div>
       </div>
     </div>

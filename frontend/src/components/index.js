@@ -8,3 +8,4 @@ export { default as Benefit1 } from "./Benefit1";
 export { default as Benefit2 } from "./Benefit2";
 export { default as Benefit3 } from "./Benefit3";
 export { default as CTA } from "./CTA";
+export { default as Footer } from "./Footer";
