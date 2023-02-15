@@ -9,6 +9,8 @@ import key from "./key.svg";
 import contract from "./contract.svg";
 import profile from "./profile.svg";
 import pfp from "./pfp.svg";
+import close from "./close.svg";
+import menu from "./menu.svg";
 
 export {
   loader,
@@ -22,4 +24,6 @@ export {
   contract,
   profile,
   pfp,
+  close,
+  menu,
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import CustomButton from "./CustomButton";
-import { logo, pfp } from "../assets";
+import { logo, pfp, close, menu } from "../assets";
 
 import { useStateContext } from "../context";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +11,12 @@ const Navbar = () => {
 
   return (
     <div className={`w-full flex py-6 justify-between items-center navbar`}>
+      <img
+        src={toggle ? close : menu}
+        alt="menu"
+        className="w-[28px] h-[28-px] object-contain"
+        onClick={() => setToggle((prev) => !prev)}
+      />
       <Link to="/">
         <div className="w-[80px] h-[80px] rounded-full flex justify-center items-center cursor-pointer">
           <img

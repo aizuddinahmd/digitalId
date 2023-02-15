@@ -1,5 +1,6 @@
 import styles from "../styles";
 import React from "react";
+import CustomButton from "./CustomButton";
 
 const CTA = () => (
   <section
@@ -14,7 +15,11 @@ const CTA = () => (
       </p>
     </div>
     <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-      <button className="bg-blue_gradient text-white">Get Started</button>
+      <CustomButton
+        btnType="submit"
+        title="Get Started"
+        styles="bg-[#1dc071]"
+      />
     </div>
   </section>
 );
