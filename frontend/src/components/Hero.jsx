@@ -13,11 +13,9 @@ const Hero = () => {
       >
         <div className="flex flex-row justify-between items-center w-full">
           <h1
-            className={`flex-1 font-epilogue font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px]`}
+            className={`flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-white ss:leading-[100px] leading-[75px]`}
           >
-            Take Control
-            <br className="sm:block hidden" />
-            Of Your
+            Take Control Your
             <br className="sm:block hidden" />
             <span className="text-gradient"> Personal Information</span>
           </h1>
@@ -36,9 +34,9 @@ const Hero = () => {
             alt="fingerprint"
             className="w-[100%] h-[100%] relative z-[5]"
           />
-          <div className="absolute z-[0] w-[50%] h-[45%] top-0 pink_gradient"></div>
+          <div className="absolute z-[0] w-[50%] h-[45%] top-0 pink_gradient" />
 
-          <div className="absolute z-[1] w-[60%] h-[60%] rounded-full right-20 bottom-40 white__gradient"></div>
+          <div className="absolute z-[1] w-[60%] h-[60%] rounded-full right-20 bottom-40 white__gradient" />
         </div>
       </div>
     </section>

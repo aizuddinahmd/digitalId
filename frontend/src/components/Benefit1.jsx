@@ -12,8 +12,8 @@ const Benefit1 = () => {
       </div>
       <div className={`${layout.sectionInfo}`}>
         <h4 className={`${styles.heading2}`}>
-          Protect your personal information <br />
-          with the highest level of security
+          Protect your information <br />
+          with the highest level security
         </h4>
         <p className={`${styles.paragraph}`}>
           In this step, users can store all their personal information in one

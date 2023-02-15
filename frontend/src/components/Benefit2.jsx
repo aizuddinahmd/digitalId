@@ -18,6 +18,9 @@ const Benefit2 = () => {
       </div>
       <div className={`${layout.sectionImg}`}>
         <img src={key} alt="key" className={`w-[100%] h-[100%]`} />
+        <div className="absolute z-[0] w-[40%] h-[35%] top-0 pink_gradient" />
+
+        <div className="absolute z-[1] w-[50%] h-[50%] rounded-full right-20 bottom-40 white__gradient" />
       </div>
     </section>
   );

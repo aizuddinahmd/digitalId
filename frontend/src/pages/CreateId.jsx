@@ -82,12 +82,14 @@ const CreateId = () => {
           <div
             className={`flex flex-row justify-center items-center p-[16px] sm:min-w-[380px] bg-[#3a3a43] rounded-[10px]`}
           >
-            <h1 className="font-epilogue text-white font-bold text-[18px] sm:text-[25px] leading-[38px]">
+            <h1
+              className={`font-poppins text-white font-bold text-[18px] sm:text-[25px] leading-[38px]`}
+            >
               Create your ID
             </h1>
           </div>
           <form
-            onSubmit={handleSubmit}
+            // onSubmit={handleSubmit}
             className={`w-full flex flex-col mt-[65px] gap-[30px]`}
           >
             <div className={`flex flex-wrap gap-[40px]`}>
@@ -167,7 +169,7 @@ const CreateId = () => {
                   <button
                     type="submit"
                     onClick={uploadToIpfs}
-                    className="bg-[#1dc071] py-[10px] px-[25px] font-epilogue font-semibold text-[16px] leading-[26px] text-white min-h-[52px] px-4 rounded-[10px]"
+                    className="bg-[#1dc071] py-[10px] px-[25px] font-epilogue font-semibold text-[16px] leading-[26px] text-white min-h-[52px] px-4 rounded-[10px] cursor:pointer"
                   >
                     Upload
                   </button>
@@ -179,6 +181,7 @@ const CreateId = () => {
                 btnType="submit"
                 title="Create New ID"
                 styles="bg-[#1dc071]"
+                handleClick={handleSubmit}
               />
             </div>
           </form>
