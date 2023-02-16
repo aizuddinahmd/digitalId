@@ -56,14 +56,17 @@ const CreateId = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
-    setForm({ ...form, image: imageUrl });
-    await createId({
-      ...form,
-      image: imageUrl,
-    });
-    setIsLoading(false);
-    navigate("/profile");
+    if (imageUrl) {
+      setIsLoading(true);
+      const updatedForm = { ...form, image: imageUrl };
+      await createId(updatedForm);
+      setForm(updatedForm);
+      setIsLoading(false);
+      navigate("/profile");
+    } else {
+      alert("Please provide pictures");
+    }
+
     // checkIfImage(form.image, async (exists) => {
     //   if (exists) {
     //   } else {

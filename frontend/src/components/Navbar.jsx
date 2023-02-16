@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const { connect, address } = useStateContext();
+  const [toggle, setToggle] = useState(false);
 
   return (
     <div className={`w-full flex py-6 justify-between items-center navbar`}>
@@ -26,7 +27,11 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <div className={`flex justify-center items-center gap-8`}>
+      <div
+        className={`${
+          toggle ? "block" : "hidden"
+        } sm:block flex justify-center items-center gap-8`}
+      >
         <Link to="/createId">
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
             <li
