@@ -21,7 +21,7 @@ const Navbar = () => {
           />
         </div>
       </Link>
-      <div className="flex">
+      <div className="flex justify-center items-center gap-8">
         <Link to="/createId">
           <ul className="list-none sm:flex hidden justify-end items-center flex-1">
             <li
@@ -67,7 +67,7 @@ const Navbar = () => {
             toggle ? "flex" : "hidden"
           } p-6 bg-black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar`}
         >
-          <div className="flex mx-4 flex-row">
+          <div className="flex mx-4 flex-col justify-center items-center gap-8">
             <Link to="/Profile">Profile</Link>
             <CustomButton
               btnType="button"
