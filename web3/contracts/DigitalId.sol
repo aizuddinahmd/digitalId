@@ -19,10 +19,6 @@ contract DigitalId {
     uint256 public numberOfIds = 0;
 
     function createId(address _owner, string memory _fullName, uint256 _birthDate, string memory _location, uint256 _poscode, string memory _gender, uint256 _phoneNo, string memory _image) public returns(uint256) {
-
-        require(!recorded[msg.sender], "Information for this address has already been recorded");
-        recorded[msg.sender] = true;
-
         Id storage id = ids[numberOfIds];
 
         id.owner = _owner;
